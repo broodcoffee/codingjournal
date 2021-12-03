@@ -9,26 +9,7 @@ const App = () => {
   const [showAddEntry, setShowAddEntry] = useState(false);
 
   //variable name misspelled to avoid confursion with reserved word
-  const [entrys, setEntrys] = useState([
-    {
-      id: 1,
-      text: 'Doctors Appointment',
-      day: '2021-02-05',
-      reminder: true, 
-  },
-  {
-    id: 2,
-    text: 'Meeting at School',
-    day: '2021-02-06',
-    reminder: true, 
-  },
-  {
-    id: 3,
-    text: 'Food Shopping',
-    day: '2021-02-05',
-    reminder: false, 
-  },
-  ]);
+  const [entrys, setEntrys] = useState([]);
 
   //Add Task
   const addEntry = (entry) => {
