@@ -52,10 +52,6 @@ body {
   transition: all ease 0.5s;
 }
 
-.btn-block {
-  width: 50%;
-}
-
 .entry {
   background: #f4f4f4;
   margin: 5px;
@@ -104,8 +100,9 @@ body {
 
 .form-control-btns {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 20px;
+  grid-template-columns: max-content max-content;
+  gap: 5px;
+  justify-content: center;
 }
 
 .form-control-check {
