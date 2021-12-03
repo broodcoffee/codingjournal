@@ -1,13 +1,133 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: max-content;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: block;
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  background-color: transparent;
+  transition: all ease 0.5s;
+}
+
+.btn-block {
+  width: 50%;
+}
+
+.entry {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: gray;
+}
+
+.entry.reminder {
+  border-left: 5px solid green;
+  color: black;
+}
+
+.entry h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+.form-control textarea {
+  width: 100%;
+  height: 100px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-btns {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+.form-control-check {
+  display: grid;
+  grid-template-columns: 40px max-content 40px max-content;
+  gap: 5px;
+  justify-content: center;
+}
+.form-control-check label {
+  height: 20px;
+}
+
+.form-control-check input {
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+footer .btn {
+  background-color: darkred;
 }
