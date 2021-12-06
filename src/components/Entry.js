@@ -1,11 +1,10 @@
 import { FaTimes } from 'react-icons/fa';
 
-const storedEntry = localStorage.getItem("entrys");
-JSON.parse(storedEntry);
+//const storedEntry = localStorage.getItem("entrys");
+//JSON.parse(storedEntry);
 const Entry = ({ entry, onDelete, onToggle }) => {
     
     return (
-
         <div 
             className={`entry ${entry.reminder ? 'reminder' : ''} `} 
             onDoubleClick={() => onToggle(entry.id)}
