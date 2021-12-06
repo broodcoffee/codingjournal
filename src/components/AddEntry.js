@@ -31,21 +31,19 @@ const AddEntry = ({ onAdd }) => {
 
     return (
         <form className='add-form' onSubmit={onSubmit} onReset={onReset} >
-            {/*
             <div className='form-control form-control-check'>
                 <input type='radio' value='task'  required />
                 <label>Task </label>
                 <input type='radio' value='thought' />
                 <label>Thought </label>
             </div> 
-            */}
             <div className='form-control'>
                 <label>Date: </label>
-                <input type='date' value={day} onChange={(e) => setDay(e.target.value)} required/>
+                <input type='date' value={day} onChange={(e) => setDay(e.target.value)} required pattern='\d{2}-\d{2}-\d{4}' />
             </div>
             <div className='form-control'>
                 <label>Entry: </label>
-                <textarea type='text' rows={5} placeholder='Add Text' value={text} onChange={(e) => setText(e.target.value)} required/>
+                <textarea type='text' rows={5} placeholder='Add Text' value={text} onChange={(e) => setText(e.target.value)} required />
             </div>
             <div className='form-control form-control-btns'>
             <input className='btn btn-block' type='reset' value='Clear Text' />

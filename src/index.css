@@ -30,7 +30,7 @@ body {
 
 .btn {
   display: block;
-  background-color: cornflowerblue;
+  background-color: steelblue;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -69,6 +69,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.fa-btns {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 5px;
+  justify-content: center;
 }
 
 .add-form {
@@ -126,5 +133,5 @@ footer {
 }
 
 footer .btn {
-  background-color: darkred;
+  background-color: black;
 }

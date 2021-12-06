@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
+import LogHeader from './components/LogHeader';
 import FormHeader from './components/FormHeader';
 import Entrys from './components/Entrys';
 import AddEntry from './components/AddEntry';
@@ -8,7 +9,7 @@ import Footer from './components/Footer';
 const App = () => {
   const [showAddEntry, setShowAddEntry] = useState(false);
 
-  //variable name misspelled to avoid confursion with reserved word
+  //variable name misspelled to avoid confusion with reserved word
   const [entrys, setEntrys] = useState([]);
 
   //Add Task
@@ -27,7 +28,7 @@ const App = () => {
   const deleteEntry = (id) => {
     setEntrys(entrys.filter((entry) => entry.id !== id));
     console.log(id);
-  }
+  } 
 
   //Delete All Entries
   const deleteAll = (e) => {
@@ -58,21 +59,23 @@ const App = () => {
           {showAddEntry && <AddEntry onAdd={addEntry} />}
         </div>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={4}>  
         <div className='container'>
+          <LogHeader entryType='Tasks' />
           {entrys.length > 0 ? 
             <Entrys 
-              entrys={entrys}
+              entrys={entrys}  
               onDelete={deleteEntry}
               onToggle={toggleReminder} 
             />
-            : 'No Entries To Show' }
-            <Footer onClick={deleteAll}/>
+            : 'No Entries To Show'  
+          }
+          {entrys.length !== 0 && <Footer onClick={deleteAll} />}
         </div>
       </Grid>
-      {/*
       <Grid item xs={4}>
         <div className='container'>
+          <LogHeader entryType='Thoughts' />
           {entrys.length > 0 ? 
             <Entrys 
               entrys={entrys}
@@ -80,10 +83,9 @@ const App = () => {
               onToggle={toggleReminder} 
             />
           : 'No Entries To Show' }
-          <Footer onClick={deleteAll}/>
+          {entrys.length !== 0 && <Footer onClick={deleteAll} />}
         </div>
       </Grid>
-      */}
     </Grid>
   );
 }
