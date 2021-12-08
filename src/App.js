@@ -46,6 +46,18 @@ const App = () => {
     );
   }
 
+  /*
+  const sortEntry = (entry) => {
+    if (entry.entryType === 'task'){
+      
+    }
+    else {
+
+    }
+  } 
+  */
+
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={4}>
