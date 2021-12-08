@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 
 const App = () => {
   const [showAddEntry, setShowAddEntry] = useState(false);
-
   //variable name misspelled to avoid confusion with reserved word
   const [entrys, setEntrys] = useState([]);
 
@@ -17,6 +16,7 @@ const App = () => {
     const id = Date.now();
     const newEntry = { id, ...entry };
     setEntrys([...entrys, newEntry]);
+    console.log(id);
   }
   
   useEffect(() => {
@@ -27,7 +27,6 @@ const App = () => {
   //Delete Entry
   const deleteEntry = (id) => {
     setEntrys(entrys.filter((entry) => entry.id !== id));
-    console.log(id);
   } 
 
   //Delete All Entries
@@ -47,7 +46,6 @@ const App = () => {
     );
   }
 
-
   return (
     <Grid container spacing={3}>
       <Grid item xs={4}>
@@ -61,7 +59,7 @@ const App = () => {
       </Grid>
       <Grid item xs={4}>  
         <div className='container'>
-          <LogHeader entryType='Tasks' />
+          <LogHeader logType='Tasks' />
           {entrys.length > 0 ? 
             <Entrys 
               entrys={entrys}  
@@ -75,7 +73,7 @@ const App = () => {
       </Grid>
       <Grid item xs={4}>
         <div className='container'>
-          <LogHeader entryType='Thoughts' />
+          <LogHeader logType='Thoughts' />
           {entrys.length > 0 ? 
             <Entrys 
               entrys={entrys}
