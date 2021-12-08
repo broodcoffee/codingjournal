@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-
 const AddEntry = ({ onAdd }) => {
+    const [entryType, setEntryType] = useState('');
     const [text, setText] = useState('');
     const [day, setDay] = useState('');
     const [reminder, setReminder] = useState(true);
@@ -9,32 +9,44 @@ const AddEntry = ({ onAdd }) => {
     const onSubmit = (e) => {
         e.preventDefault();
         
-        if (!text) {
-            alert('Please add an input');
+        if (entryType === 'task') {
+            onAdd({ entryType, text, day, reminder });
+
+            setEntryType('');
+            setText('');
+            setDay('');
+            setReminder(true);
+        }
+        else if (entryType === 'thought') {
+            onAdd({ entryType, text, day });
+
+            setEntryType('');
+            setText('');
+            setDay('');
+        }
+        else {
+            alert('Please indcate if your input is a "Task" or a "Thought"');
             return;
         }
-
-        onAdd({ text, day, reminder });
-
-        setText('');
-        setDay('');
-        setReminder(true);
     }
 
 
     const onReset = () => {
         window.confirm('This will clear all inputs. Continue?')
+        setEntryType('');
         setText('');
         setDay('');
-        setReminder(false);
+        setReminder(true);
+        
     }
 
     return (
         <form className='add-form' onSubmit={onSubmit} onReset={onReset} >
             <div className='form-control form-control-check'>
-                <input type='radio' value='task'  required />
+                <p>Select Type:</p>
+                <input type='radio' value='task' checked={entryType === 'task'} onChange={(e) => setEntryType(e.target.value)} required />
                 <label>Task </label>
-                <input type='radio' value='thought' />
+                <input type='radio' value='thought' checked={entryType === 'thought'} onChange={(e) => setEntryType(e.target.value)} />
                 <label>Thought </label>
             </div> 
             <div className='form-control'>
@@ -43,7 +55,7 @@ const AddEntry = ({ onAdd }) => {
             </div>
             <div className='form-control'>
                 <label>Entry: </label>
-                <textarea type='text' rows={5} placeholder='Add Text' value={text} onChange={(e) => setText(e.target.value)} required />
+                <input type='text' placeholder='Keep It Short and Sweet' value={text} onChange={(e) => setText(e.target.value)} required />
             </div>
             <div className='form-control form-control-btns'>
             <input className='btn btn-block' type='reset' value='Clear Text' />

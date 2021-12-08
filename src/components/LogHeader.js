@@ -1,9 +1,9 @@
-const LogHeader = ({ entryType }) => {
+const LogHeader = ({ logType }) => {
     const today = new Date();
 
     return (
         <div>
-            <h1>{entryType} for {today.toLocaleDateString()}</h1>            
+            <h1>{logType} for {today.toLocaleDateString()}</h1>            
         </div>
     )
 }
